@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedZone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>SpeedZone</h1>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </label>
+            <ul class="nav-links">
+                <li><a href="#home">Página Inicial</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Página Inicial -->
+        <section id="home" class="section home-section active">
+            <h2>Seja Bem-vindo</h2>
+            <!-- Carrossel de Imagens -->
+            <div class="carousel">
+                <div class="carousel-wrapper">
+                    <div class="carousel-item"><img src="https://www.canaldapeca.com.br/blog/wp-content/uploads/2016/06/BMW-i8-N%C3%A3o-Parece-mas-ele-%C3%A9-feito-na-Terra.jpg"></div>
+                    <div class="carousel-item"><img src="https://media.fastestlaps.com/bmw-m5-f90-competition.jpg" alt="Imagem 2"></div>
+                    <div class="carousel-item"><img src="https://www.bmw.pt/content/dam/bmw/common/all-models/z-series/roadster/2022/highlights/bmw-z-series-z4-roadster-ms-aerodynamic.jpg"></div>
+                </div>
+                <a class="carousel-prev" href="#">&#10094;</a>
+                <a class="carousel-next" href="#">&#10095;</a>
+            </div>
+            <p>Explore nossos carros e orçamentos.</p>
+        </section>
+
+        <!-- Galeria -->
+        <section id="gallery" class="section gallery-section">
+            <h2>Galeria </h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://cdn.motor1.com/images/mgl/OoopyY/s3/bmw-xm-production-version-rendering.jpg" alt="Imagem 1" class="imagem-1">
+                    <p>Bmw xm A partir de R$ 970 mil</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://carro.blog.br/wp-content/uploads/2024/07/bmw-ix2-1-jpg.webp" alt="Imagem 2" class="imagem-2">
+                    <p>Bmw iX2 A partir de R$ 443.950</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://mediapool.bmwgroup.com/cache/P9/202010/P90403620/P90403620-bmw-m4-competition-x-kith-10-2020-2002px.jpg" alt="Imagem 3" class="imagem-3">
+                    <p>Bmw M4 A partir de R$ 504.950.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.canaldapeca.com.br/blog/wp-content/uploads/2016/06/BMW-i8-N%C3%A3o-Parece-mas-ele-%C3%A9-feito-na-Terra.jpg" alt="Imagem 4" class="imagem-4">
+                    <p>Bmw I8 A partir de R$ 710.950,00</p>
+                </div>
+            </div>
+            <a href="#home" class="back-to-home">Voltar ao Início</a>
+        </section>
+
+        <!-- Sobre -->
+        <section id="about" class="section about-section">
+            <h2>Sobre Nós</h2>
+            <div class="about-content">
+                <p>Nossa equipe é composta por profissionais dedicados e apaixonados pelo que fazem. Trabalhamos para oferecer a melhor experiência possível para você. Garantimos qualidade de atendimento tanto pelo site quanto pela concessionária, tudo para o seu conforto. </p>
+            </div>
+            <a href="#home" class="back-to-home">Voltar ao Início</a>
+        </section>
+
+        <!-- Contato -->
+        <section id="contact" class="section contact-section">
+            <h2>Contato</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <p>Email: SpeedZoneconcessionárias@icloud.com</p>
+                </div>
+                <div class="info-item">
+                    <p>Telefone: (45) 99956-7831</p>
+                </div>
+            </div>
+            <a href="#home" class="back-to-home">Voltar ao Início</a>
+        </section>
+    </main>
+    <script>
+        // Carrossel de Imagens
+        document.addEventListener('DOMContentLoaded', function () {
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
+            const carouselWrapper = document.querySelector('.carousel-wrapper');
+            let index = 0;
+
+            function updateCarousel() {
+                const items = document.querySelectorAll('.carousel-item');
+                const totalItems = items.length;
+                if (index >= totalItems) index = 0;
+                if (index < 0) index = totalItems - 1;
+                carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            prevButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                index--;
+                updateCarousel();
+            });
+
+            nextButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                index++;
+                updateCarousel();
+            });
+
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
